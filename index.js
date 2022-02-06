@@ -1,34 +1,34 @@
 // Your code here
-const dodger = document.getElementById("dodger");
+const dodger = document.querySelector('#dodger');
 
-dodger.style.backgroundColor = "#ff69b4";
+dodger.style.backgroundColor = "blue";
 
 function moveDodgerLeft() {
-    var leftNumbers = dodger.style.left.replace("px", "");
-    var left = parseInt(leftNumbers, 10);
-  
+    const leftNumbers = dodger.style.left.replace("px","");
+    const left = parseInt(leftNumbers,10);
+   
     if (left > 0) {
-      dodger.style.left = `${left - 5}px`;
-    }
-  }
+      dodger.style.left = `${left - 10}px`;
+    } 
+}
 
 function moveDodgerRight() {
-    var leftNumbers = dodger.style.left.replace("px", "");
-    var left = parseInt(leftNumbers, 10);
+  const rightNumbers = dodger.style.left.replace("px"," ");
+  const right = parseInt(rightNumbers,10)
   
-    if (left > 0) {
-      dodger.style.left = `${left + 5}px`;
-    }
+  if (right < 360) {
+    dodger.style.left = `${right + 10}px`
   }
+}
 
-document.addEventListener("keydown", function (e) {
-   if (e.key === "ArrowLeft") {
-        moveDodgerLeft();
-   }
-   if (e.key === "ArrowRight") {
-        moveDodgerRight();
-   }
-});
+document.addEventListener("keydown", function (event) {
+  if (event.key === "ArrowLeft") {
+    moveDodgerLeft();
+  }
+})
 
-
-
+document.addEventListener("keydown", function (event) {
+  if(event.key === "ArrowRight") {
+    moveDodgerRight();
+  }
+})
